@@ -313,7 +313,6 @@ An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The
       ]
     },
     "ipvm/config": {
-      "v": "0.1.0",
       "secret": false,
       "check": {
         "optimistic": 17, 
@@ -345,21 +344,23 @@ An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The
 
 ``` json
 {
-  "with": "ipfs://bafkreidvq3uqoxcxr44q5qhgdk5zk6jvziipyxguirqa6tkh5z5wtpesva",
-  "can": "docker/run",
-  "inputs": {
-    "entrypoint": ["/", "home"],
-    "mounts": {"mnt": "/"},
-    "outputs": {"tmp": "/tmp"},
-    "env":  {"$HELLO": "world"},
-    "workdir":  "/work"
-  },
-  "meta": {
-    "ipvm/config": {
-      "secret": false,
-      "check": {
-        "optimistic": 2, 
-        "referee": "did:key:zStEZpzSMtTt9k2vszgvCwF4fLQQSyA15W5AQ4z3AR6Bx4eFJ5crJFbuGxKmbma4"
+  "run-docker": {
+    "with": "ipfs://bafkreidvq3uqoxcxr44q5qhgdk5zk6jvziipyxguirqa6tkh5z5wtpesva",
+    "do": "docker/run",
+    "inputs": {
+      "entrypoint": ["/", "home"],
+      "mounts": {"mnt": "/"},
+      "outputs": {"tmp": "/tmp"},
+      "env":  {"$HELLO": "world"},
+      "workdir":  "/work"
+    },
+    "meta": {
+      "ipvm/config": {
+        "secret": false,
+        "check": {
+          "optimistic": 2, 
+          "referee": "did:key:zStEZpzSMtTt9k2vszgvCwF4fLQQSyA15W5AQ4z3AR6Bx4eFJ5crJFbuGxKmbma4"
+        }
       }
     }
   }
@@ -368,18 +369,20 @@ An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The
 
 ``` json
 {
-  "with": {"ucan/promise": ["/", "previous_action"]},
-  "can": "docker/run",
-  "inputs": {
-    "entrypoint": ["/", "home"],
-    "mounts": {"mnt": "/"},
-    "outputs": {"tmp": "/tmp"},
-    "env":  {"$HELLO": "world"},
-    "workdir":  "/work"
-  },
-  "meta": {
-    "ipvm/config": {
-      "disk": "200GB"
+  "pipelined-docker-promise": {
+    "with": {"ucan/promise": ["/", "previous_action"]},
+    "do": "docker/run",
+    "inputs": {
+      "entrypoint": ["/", "home"],
+      "mounts": {"mnt": "/"},
+      "outputs": {"tmp": "/tmp"},
+      "env":  {"$HELLO": "world"},
+      "workdir":  "/work"
+    },
+    "meta": {
+      "ipvm/config": {
+        "disk": "200GB"
+      }
     }
   }
 }
