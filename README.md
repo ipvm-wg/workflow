@@ -192,7 +192,7 @@ type TaskRef struct {
             "from": "mailto://alice@exmaple.com",
             "to": ["bob@exmaple.com"],
             "event": "email-notification",
-            "value": {"ucan/promise": ["/", "notify-bob"]} // Pipelined promise
+            "value": {"ucan/promise": ["/", "notify-bob"]}
           }
         }
       }
