@@ -180,7 +180,7 @@ type TaskRef struct {
           ],
           "meta": {
             "ipvm/config": {
-              "time": {"minutes": "30"},
+              "time": [30, "minutes"],
               "secret": true
             }
           }
@@ -265,7 +265,12 @@ type SystemConfig struct {
 ``` json
 {
   "secret": true,
-  "check": {"optimistic": {"confirmations": 2, "referee": "did:key:zStEZpzSMtTt9k2vszgvCwF4fLQQSyA15W5AQ4z3AR6Bx4eFJ5crJFbuGxKmbma4"}},
+  "check": {
+    "optimistic": {
+      "confirmations": 2, 
+      "referee": "did:key:zStEZpzSMtTt9k2vszgvCwF4fLQQSyA15W5AQ4z3AR6Bx4eFJ5crJFbuGxKmbma4"
+    }
+  },
   "gas": 5000,
   "time": [45, "minutes"],
   "memory": [500, "kilo", "bytes"],
