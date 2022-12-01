@@ -298,30 +298,11 @@ An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The
 
 ## 4.3 JSON Examples
 
-``` json
-{
-  "simple": {
-    "with": "dns://example.com?TYPE=TXT",
-    "do": "crud/update",
-    "inputs": { 
-      "value": "hello world"
-    },
-    "meta": {
-      "ipvm/config": {
-        "secret": false
-        "timeout": [500, "milli", "seconds"],
-        "verification": "attestation"
-      }
-    }
-  }
-}
-```
-
 ``` js
 {
   "some-wasm": {
-    "with": "wasm:1:Qm12345", // Or something... wasm:Qm12345?
-    "do": "ipvm/run",
+    "with": "ipfs://bafkreicgincymfzzumcqcrpmquyildzqppa3s2gv3scfy2csaqpgqpp7ke",
+    "do": "wasm/run",
     "inputs": {
       "func": "calculate",
       "args": [
@@ -345,32 +326,60 @@ An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The
 
 ``` json
 {
-  "with": "ipfs://bafkreidvq3uqoxcxr44q5qhgdk5zk6jvziipyxguirqa6tkh5z5wtpesva",
-  "do": "docker/run",
-  "inputs": {
-    "func": "calculate",
-    "args": [
-      1,
-      "hello world",
-      {"c": {"ucan/promise": ["/", "some-other-action"]}},
-      {"a": 1, "b": 2, "c": 3}
-    ],
-    "container": {
-      "entry": "/",
-      "workdir": "/",
+  "set-dns": {
+    "with": "dns://example.com?TYPE=TXT",
+    "do": "crud/update",
+    "inputs": { 
+      "value": "hello world"
     },
-    "env": {
-      "$FOO": "bar"
+    "meta": {
+      "ipvm/config": {
+        "secret": false
+        "timeout": [500, "milli", "seconds"],
+        "verification": "attestation"
+      }
     }
+  }
+}
+```
+
+``` json
+{
+  "with": "ipfs://bafkreidvq3uqoxcxr44q5qhgdk5zk6jvziipyxguirqa6tkh5z5wtpesva",
+  "can": "docker/run",
+  "inputs": {
+    "entrypoint": ["/", "home"],
+    "mounts": {"mnt": "/"},
+    "outputs": {"tmp": "/tmp"},
+    "env":  {"$HELLO": "world"},
+    "workdir":  "/work"
   },
   "meta": {
     "ipvm/config": {
-      "v": "0.1.0",
       "secret": false,
       "check": {
         "optimistic": 2, 
         "referee": "did:key:zStEZpzSMtTt9k2vszgvCwF4fLQQSyA15W5AQ4z3AR6Bx4eFJ5crJFbuGxKmbma4"
       }
+    }
+  }
+}
+```
+
+``` json
+{
+  "with": {"ucan/promise": ["/", "previous_action"]},
+  "can": "docker/run",
+  "inputs": {
+    "entrypoint": ["/", "home"],
+    "mounts": {"mnt": "/"},
+    "outputs": {"tmp": "/tmp"},
+    "env":  {"$HELLO": "world"},
+    "workdir":  "/work"
+  },
+  "meta": {
+    "ipvm/config": {
+      "disk": "200GB"
     }
   }
 }
