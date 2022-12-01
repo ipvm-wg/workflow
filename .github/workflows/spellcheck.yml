@@ -1,0 +1,15 @@
+name: Spellcheck Action
+on: push
+
+jobs:
+  build:
+    name: Spellcheck
+    runs-on: ubuntu-latest
+    steps:
+    # The checkout step
+    - uses: actions/checkout@master
+    - uses: matheus23/md-spellcheck-action@v3.0.0
+      name: Spellcheck
+      with:
+        files-to-check: "**/*.md"
+        words-to-ignore-file: ./.github/workflows/words-to-ignore.txt
