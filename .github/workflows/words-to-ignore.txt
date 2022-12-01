@@ -1,5 +1,4 @@
-ABI
-ACM
+ABACM
 Agoric
 Antigoals
 AquaVM
@@ -24,6 +23,7 @@ FVM
 Filecoin
 Frans
 HydroLogic
+I
 IAM
 IPC
 IPFS
@@ -122,6 +122,7 @@ pre-resolved
 preimage
 prenegotiated
 repos
+reproducibly
 requestor
 rethrow
 runtimes
