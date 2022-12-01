@@ -279,9 +279,9 @@ type SystemConfig struct {
 >
 > — [The Protomen](https://en.wikipedia.org/wiki/The_Protomen), The Good Doctor
 
-Tasks are the smallest level of work granularity a workflow. Tasks describe everything required to the negotiate and execute all of the of work. IPVM Tasks are defined as a subtype of [UCAN Tasks](https://github.com/ucan-wg/invocation/blob/main/README.md#32-ipld-schema). Task types MAY require specific fields in the `inputs` field.  Timeouts, gas, credits, transactional guarantees, result visibility, and so on MAY be separately confifured in the `ipvm/config` field.
+Tasks are the smallest level of work granularity a workflow. Tasks describe everything required to the negotiate and execute all of the of work. IPVM Tasks are defined as a subtype of [UCAN Tasks](https://github.com/ucan-wg/invocation/blob/main/README.md#32-ipld-schema). Task types MAY require specific fields in the `inputs` field.  Timeouts, gas, credits, transactional guarantees, result visibility, and so on MAY be separately configured in the `ipvm/config` field.
 
-Tasks MAY be configured in aggragate in the [global defaults](#215-defaults). Individual Task configuration MUST be embedded inside of a [UCAN Action](https://github.com/ucan-wg/invocation)'s `meta['ipvm/confg']` field.
+Tasks MAY be configured in aggragate in the [global defaults](#215-defaults). Individual Task configuration MUST be embedded inside of a [UCAN Action's](https://github.com/ucan-wg/invocation) `meta['ipvm/confg']` field.
 
 ## 4.1 Fields
 
@@ -491,7 +491,7 @@ BucketVM and [`w3-machines`](https://github.com/web3-storage) are two approaches
 
 [Project Naiad](https://www.microsoft.com/en-us/research/video/introducing-project-naiad-and-differential-dataflow/) and its lineage (e.g. [Timely Dataflow](https://timelydataflow.github.io/timely-dataflow/), [Differential Dataflow](https://timelydataflow.github.io/differential-dataflow/)) offer an extremely powerful dataflow model, including differential updates, control flow cycles, long running processes, but in a trusted environment. Such features could be supported for a subset of task types in IPVM in the future.
 
-[WarpForge Formulas](https://github.com/warptools/warpforge/blob/master/examples/100-formula-parse/example-formulas.md) describe how to reproducably build and cache packages. The functionality is a specialization of IPVM workflows, and may be configurable with IPVM in the future.
+[WarpForge Formulas](https://github.com/warptools/warpforge/blob/master/examples/100-formula-parse/example-formulas.md) describe how to reproducibly build and cache packages. The functionality is a specialization of IPVM workflows, and may be configurable with IPVM in the future.
 
 # 9 Acknowledgments
 
