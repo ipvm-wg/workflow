@@ -54,6 +54,7 @@ README
 Requestor
 Riise
 Roadmap
+S3
 SPDX-License-Identifier
 SPKI
 STM
@@ -70,15 +71,18 @@ VM
 WASI
 Wasm
 Wasm-on-IPFS
+Web3
 WebAssembly
 Zelenka
 acceptor
 acyclic
+aggragate
 behaviours
 codec
 codecs
 codename
 cron
+cryptographic
 dataflow
 de
 decrypt
@@ -95,6 +99,7 @@ hardcoded
 idempotence
 individuals'
 inspectable
+labelled
 low-ish
 md
 memoization
@@ -117,6 +122,7 @@ preimage
 prenegotiated
 repos
 requestor
+rethrow
 runtimes
 serverless
 sexualized
@@ -132,6 +138,7 @@ trustless
 ucan-chan
 untrusted
 v0
+verifiability
 wasm-ipfs
 woman_scientist
 world_map

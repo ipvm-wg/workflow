@@ -21,7 +21,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 # 0 Abstract
 
-An IPVM Workflow is a declarative cofiguration that extends a [UCAN Invocation](https://github.com/ucan-wg/invocation). A Workflow provides everything required to execute one or more tasks: defaults, tasks and their dependencies, authorization, metadata, signatures, and so on.
+An IPVM Workflow is a declarative configuration that extends a [UCAN Invocation](https://github.com/ucan-wg/invocation). A Workflow provides everything required to execute one or more tasks: defaults, tasks and their dependencies, authorization, metadata, signatures, and so on.
 
 # 1 Introduction
 
@@ -117,7 +117,7 @@ The `tasks` field contains all of the IPVM [Tasks](#4-task-configuration) set to
 
 ## 2.1.7 Exception Handler
 
-The OPTIONAL `catch` field contains a Task with predefined inputs. See the [Exception Handling](#7-exception-handling) section for more deatil.
+The OPTIONAL `catch` field contains a Task with predefined inputs. See the [Exception Handling](#7-exception-handling) section for more detail.
 
 ## 2.2 IPLD Schema
 
@@ -143,7 +143,7 @@ type TaskRef struct {
 } representation tuple
 ```
 
-## 2.3 JSON Exmaples
+## 2.3 JSON Examples
 
 ``` json
 {
@@ -202,7 +202,7 @@ type TaskRef struct {
 }
 ```
 
-# 3 Configuation
+# 3 Configuration
 
 The IPVM configuration struct defines secrecy, quotas, and verification strategy:
 
@@ -223,7 +223,7 @@ This MAY be set globally or configured on [individual Tasks](#4-task-configurati
 
 The `secret` flag marks a task as being unsuitable for publication.
 
-If the `sceret` field is explicitely set, the task MUST be treated per that setting. If not set, the `secret` field defaults to `null`, which behaves as a soft `false`. If such a task consumes input from a `secret` source, it is also marked as `secret`.
+If the `sceret` field is explicitly set, the task MUST be treated per that setting. If not set, the `secret` field defaults to `null`, which behaves as a soft `false`. If such a task consumes input from a `secret` source, it is also marked as `secret`.
 
 Note: there is no way to enforce secrecy at the task-level, so such tasks SHOULD only be negotiated with runners that are trusted. If secrecy must be inviolable, consider with [multi-party computation (MPC)](https://en.wikipedia.org/wiki/Secure_multi-party_computation) or [fully homomorphic encryption (FHE)](https://en.wikipedia.org/wiki/Homomorphic_encryption#Fully_homomorphic_encryption) inside the task.
 
@@ -279,7 +279,7 @@ type SystemConfig struct {
 >
 > — [The Protomen](https://en.wikipedia.org/wiki/The_Protomen), The Good Doctor
 
-Tasks are the smallest level of work granularity a workflow. Tasks describe everything required to the negotate and execute all of the of work. IPVM Tasks are defined as a subtype of [UCAN Tasks](https://github.com/ucan-wg/invocation/blob/main/README.md#32-ipld-schema). Task types MAY require specific fields in the `inputs` field.  Timeouts, gas, credits, transactional guarantees, result visibility, and so on MAY be separately confifured in the `ipvm/config` field.
+Tasks are the smallest level of work granularity a workflow. Tasks describe everything required to the negotiate and execute all of the of work. IPVM Tasks are defined as a subtype of [UCAN Tasks](https://github.com/ucan-wg/invocation/blob/main/README.md#32-ipld-schema). Task types MAY require specific fields in the `inputs` field.  Timeouts, gas, credits, transactional guarantees, result visibility, and so on MAY be separately confifured in the `ipvm/config` field.
 
 Tasks MAY be configured in aggragate in the [global defaults](#215-defaults). Individual Task configuration MUST be embedded inside of a [UCAN Action](https://github.com/ucan-wg/invocation)'s `meta['ipvm/confg']` field.
 
@@ -294,7 +294,7 @@ Recall UCAN Invocation Tasks:
 | `inputs` | `Any`            |                                                | Yes      |         |
 | `meta`   | `{String : Any}` | Fields that will be ignored during memoization | No       | `{}`    |
 
-An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The `meta` field SHOULD not captured as part of task memoization, so this informtaion will be omitted from the distributed invocation table. If included, the `Config` MUST set the IPVM configuration for this Task, overwriting any of the fields on the envelope's top-level `defaults` field, or system-wide defaults.
+An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The `meta` field SHOULD not captured as part of task memoization, so this information will be omitted from the distributed invocation table. If included, the `Config` MUST set the IPVM configuration for this Task, overwriting any of the fields on the envelope's top-level `defaults` field, or system-wide defaults.
 
 ## 4.3 JSON Examples
 
@@ -378,7 +378,7 @@ An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The
 
 # 5 Exception Handler
 
-If present, the OPTIONAL `catch` field MUST be run in response to a `Task` returning on the `Failure` branch. The determinitsic & pure Wasm module MUST take a `Failure` object as input, and MUST return data in the following shape:
+If present, the OPTIONAL `catch` field MUST be run in response to a `Task` returning on the `Failure` branch. The deterministic & pure Wasm module MUST take a `Failure` object as input, and MUST return data in the following shape:
 
 ``` ipldsch
 type Handle union {
@@ -388,7 +388,7 @@ type Handle union {
 } respresentation keyed
 ```
 
-If the `msg` branch is returned, the invocation MUST immedietly rethrow with the update message.
+If the `msg` branch is returned, the invocation MUST immediately rethrow with the update message.
 
 Note that while IPVM MUST treat the pure tasks together as transactional. It is not possible to roll back any destructive effects that have already been run. As such, it is RECOMMENDED to have few (if any) tasks depend on the output of a destructive effect, so they can be scheduled at the end of the workflow.
 
