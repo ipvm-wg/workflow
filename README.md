@@ -160,7 +160,7 @@ type TaskRef struct {
       "memory": [10, "mega", "bytes"]
     },
     "catch": "bafkreifsaaztjgknuha7tju6sugvrlbiwbyx5jf2pky2yxx5ifrpjscyhe",
-    "tasks": "ucan/invoke": {
+    "tasks": {
       "v": "0.1.0",
       "nnc": "02468",
       "prf": [ 
