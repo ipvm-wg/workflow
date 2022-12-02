@@ -17,7 +17,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 * [DAG-CBOR](https://ipld.io/specs/codecs/dag-cbor/spec/)
 * [UCAN Invocation](https://github.com/ucan-wg/invocation/)
-* [VarSig](https://github.com/ChainAgnostic/varsig/)
+* [Varsig](https://github.com/ChainAgnostic/varsig/)
 
 # 0 Abstract
 
@@ -77,7 +77,7 @@ The outer wrapper of a workflow MUST contain the following fields:
 | Field           | Type       | Description                                                             | Required |
 |-----------------|------------|-------------------------------------------------------------------------|----------|
 | `ipvm/workflow` | `Workflow` | IPVM Workflow                                                           | Yes      |
-| `signature`     | `VarSig`   | [VarSig](https://github.com/ChainAgnostic/varsig/) of serialized fields | Yes      |
+| `signature`     | `Varsig`   | [Varsig](https://github.com/ChainAgnostic/varsig/) of serialized fields | Yes      |
 
 | Field      | Type                         | Description                                                            | Required | Default |
 |------------|------------------------------|------------------------------------------------------------------------|----------|---------|
@@ -124,7 +124,7 @@ The OPTIONAL `catch` field contains a Task with predefined inputs. See the [Exce
 ``` ipldsch
 type SignedWorkflow struct {
   work Workflow (rename "ipvm/workflow")
-  sig  VarSig
+  sig  Varsig
 }
 
 type Workflow struct {

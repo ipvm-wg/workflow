@@ -68,6 +68,7 @@ UCAN
 UI
 URI
 VM
+Varsig
 WASI
 Wasm
 Wasm-on-IPFS
