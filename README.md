@@ -245,7 +245,7 @@ The OPTIONAL `disk` field configures the upper limit in system memory that the e
 
 ### 3.1.7 Gas Quota
 
-The OPTIONAL `disk` field configures the upper limit in Wasm gas that the executor SHOULD allow.
+The OPTIONAL `gas` field configures the upper limit in Wasm gas that the executor SHOULD allow.
 
 ## 3.2 IPLD Schema
 
