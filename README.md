@@ -301,7 +301,7 @@ Recall UCAN Invocation Tasks:
 
 An OPTIONAL IPVM `Config` MAY be included at the `meta['ipvm/config']` path. The `meta` field SHOULD not captured as part of task memoization, so this information will be omitted from the distributed invocation table. If included, the `Config` MUST set the IPVM configuration for this Task, overwriting any of the fields on the envelope's top-level `defaults` field, or system-wide defaults.
 
-## 4.3 JSON Examples
+## 4.2 JSON Examples
 
 ``` js
 {
